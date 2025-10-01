@@ -30,4 +30,11 @@ public class ProductController
         myList.add(myProduct);
         return myProduct;
     }
+
+    @PostMapping("/bulk")
+    public List<Product> addBulkProducts(@RequestBody List<Product> products)
+    {
+        myList.addAll(products);
+        return myList;
+    }
 }
