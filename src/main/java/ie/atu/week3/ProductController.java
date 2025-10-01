@@ -1,5 +1,6 @@
 package ie.atu.week3;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
@@ -25,14 +26,14 @@ public class ProductController
     }
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product myProduct)
+    public Product addProduct(@Valid @RequestBody Product myProduct)
     {
         myList.add(myProduct);
         return myProduct;
     }
 
     @PostMapping("/bulk")
-    public List<Product> addBulkProducts(@RequestBody List<Product> products)
+    public List<Product> addBulkProducts(@Valid @RequestBody List<Product> products)
     {
         myList.addAll(products);
         return myList;
